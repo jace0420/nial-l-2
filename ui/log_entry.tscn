@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://duf6q5n7n5dvc"]
+
+[ext_resource type="FontFile" uid="uid://c0kwoab7v4qgk" path="res://assets/fonts/unscii-16-full.ttf" id="1_cdvii"]
+
+[node name="LogEntry" type="VBoxContainer" unique_id=122065883]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LogRichTextLabel" type="RichTextLabel" parent="." unique_id=650253004]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("1_cdvii")
+bbcode_enabled = true
+text = ">This is a sample log entry. All log entries begin with the right facing caret ('>')."
+fit_content = true
+scroll_active = false
+autowrap_mode = 3

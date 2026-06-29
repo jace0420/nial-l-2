@@ -2,7 +2,7 @@
 class_name PathFollowComponent extends Node
 
 ## kept slow to give the player time to cancel mid-journey.
-const STEP_SECONDS: float = 0.5
+const STEP_SECONDS: float = 2.5
 
 ## emitted once per tile, before the icon commits to it.
 signal stepped(tile: Vector2i)

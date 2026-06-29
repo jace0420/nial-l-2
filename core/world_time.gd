@@ -40,8 +40,20 @@ func setPaused(value: bool) -> void:
 func _process(delta: float) -> void:
 	if paused:
 		return
+	_advanceElapsed(delta * TIME_SCALE)
+
+
+## pushes the clock forward by a fixed number of in-game minutes, ignoring `paused`.
+## used by turn-based world travel, where time jumps per tile instead of flowing in real time.
+func advanceMinutes(minutes: int) -> void:
+	_advanceElapsed(float(minutes) * 60.0)
+
+
+## advances the accumulated clock by `gameSeconds`, rolling the date over and emitting
+## `tick` (and `dayChanged`) as the minute/day boundaries are crossed.
+func _advanceElapsed(gameSeconds: float) -> void:
 	var prev := _elapsed
-	_elapsed += delta * TIME_SCALE
+	_elapsed += gameSeconds
 
 	var prev_day_index := int(prev) / 86400
 	var curr_day_index := int(_elapsed) / 86400

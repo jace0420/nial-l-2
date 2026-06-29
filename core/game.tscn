@@ -14,6 +14,8 @@
 [ext_resource type="Script" uid="uid://bvb23ocgetdce" path="res://systems/local_time_manager.gd" id="11_ltmgr"]
 [ext_resource type="Script" uid="uid://bx4yuhpbog1ga" path="res://systems/world_travel_system.gd" id="12_wtsys"]
 [ext_resource type="Script" uid="uid://cbgo36npljsf3" path="res://systems/travel_path_renderer.gd" id="13_tpr"]
+[ext_resource type="Script" uid="uid://chwleshdma87j" path="res://systems/travel_time_system.gd" id="14_ttsys"]
+[ext_resource type="Script" uid="uid://b7v5gv7w4bwdw" path="res://systems/log_manager.gd" id="15_logmgr"]
 
 [node name="Game" type="Node" unique_id=995360013]
 script = ExtResource("1_d3un6")
@@ -56,6 +58,15 @@ rendererPath = NodePath("../SubViewportContainer/SubViewport/TravelPathRenderer"
 confirmBoxPath = NodePath("../TravelConfirmationUIBox")
 statusLabelPath = NodePath("../RightPaneUI/TravelStatus")
 
+[node name="TravelTimeSystem" type="Node" parent="." unique_id=700000014]
+script = ExtResource("14_ttsys")
+pathFollowPath = NodePath("../SubViewportContainer/SubViewport/Player/PathFollowComponent")
+
+[node name="LogManager" type="Node" parent="." unique_id=700000015]
+script = ExtResource("15_logmgr")
+logContainerPath = NodePath("../RightPaneUI/LogScrollContainer/LogContainer")
+logScrollPath = NodePath("../RightPaneUI/LogScrollContainer")
+
 [node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=1205631369]
 anchors_preset = -1
 anchor_right = 0.5
@@ -95,7 +106,7 @@ anchor_right = 0.53125
 anchor_bottom = 0.043055557
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("8_fgh25")
-text = "00:00:00"
+text = "00:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -116,12 +127,13 @@ metadata/_edit_use_anchors_ = true
 
 [node name="TabContainer" type="TabContainer" parent="RightPaneUI" unique_id=1508210324]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 current_tab = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="Status" type="VBoxContainer" parent="RightPaneUI/TabContainer" unique_id=1988152346]
 layout_mode = 2
@@ -132,10 +144,23 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
+[node name="LogScrollContainer" type="ScrollContainer" parent="RightPaneUI" unique_id=1792779807]
+layout_mode = 0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+horizontal_scroll_mode = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="LogContainer" type="VBoxContainer" parent="RightPaneUI/LogScrollContainer" unique_id=1245618120]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
 [node name="TravelStatus" type="Label" parent="RightPaneUI" unique_id=700000013]
 visible = false
-layout_mode = 1
-anchors_preset = -1
+layout_mode = 0
 anchor_top = 0.92
 anchor_right = 1.0
 anchor_bottom = 1.0

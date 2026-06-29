@@ -6,7 +6,7 @@ const CANCEL_ACTION: StringName = &"travel_cancel"
 const MODE_TOGGLE_ACTION: StringName = &"travel_mode_toggle"
 const UNDO_ACTION: StringName = &"travel_undo_waypoint"
 
-const HINT: String = "Dbl-click: waypoint   Enter: travel   Esc: clear   Tab: mode   Bksp: undo"
+const HINT: String = "Dbl-click: POINT|Enter: TRAVEL|Esc: CLEAR|Tab: MODE|Bksp: UNDO"
 
 enum State {
 	IDLE,        ## not on the world map; system dormant
@@ -106,6 +106,7 @@ func _cancel() -> void:
 			_resolveAndRefresh()
 		State.TRAVELING:
 			_pathFollow.stop()
+			EventBus.travelEnded.emit(&"halted")
 			_resetRoute()
 			_setState(State.PLANNING)
 			_resolveAndRefresh()
@@ -120,6 +121,7 @@ func _onConfirmed() -> void:
 	if _state != State.CONFIRMING:
 		return
 	_setState(State.TRAVELING)
+	EventBus.travelStarted.emit(_worldMap.worldToTile(_player.global_position))
 	_pathFollow.followPath(_route.path)
 
 func _onCancelled() -> void:
@@ -128,6 +130,7 @@ func _onCancelled() -> void:
 	_setState(State.PLANNING)  # route stays intact for further editing
 
 func _onTravelFinished() -> void:
+	EventBus.travelEnded.emit(&"arrived")
 	_renderer.clear()
 	_resetRoute()
 	_setState(State.PLANNING)
