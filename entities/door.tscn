@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dyfhyb07sbpee"]
+
+[ext_resource type="PackedScene" uid="uid://jbi7i18p1frl" path="res://entities/prop.tscn" id="1_3fqlw"]
+[ext_resource type="Script" path="res://entities/door.gd" id="2_door"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jm4vq"]
+load_path = "res://.godot/imported/cp437.png-97ad3a0373098325e46ee456cc2b7b5d.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytgjq"]
+atlas = SubResource("CompressedTexture2D_jm4vq")
+region = Rect2(192, 80, 16, 16)
+
+[node name="Door" unique_id=108961046 instance=ExtResource("1_3fqlw")]
+script = ExtResource("2_door")
+startsOpen = false
+closedAtlasRegion = Rect2(192, 80, 16, 16)
+openAtlasRegion = Rect2(0, 0, 16, 16)
+
+[node name="Sprite2D" parent="." index="0" unique_id=242988579]
+modulate = Color(0.5294118, 0.37254903, 0, 1)
+texture = SubResource("AtlasTexture_ytgjq")

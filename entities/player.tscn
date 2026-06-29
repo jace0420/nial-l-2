@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://id01loic0h7p"]
+
+[ext_resource type="PackedScene" uid="uid://bs1lxmmjv63gy" path="res://entities/actor.tscn" id="1_merdl"]
+[ext_resource type="Script" uid="uid://b36bio32hjmxx" path="res://components/grid_movement_component.gd" id="2_gmc01"]
+[ext_resource type="Script" path="res://components/waypoint_input_component.gd" id="3_wpinput"]
+[ext_resource type="Script" path="res://components/path_follow_component.gd" id="4_pfollow"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jm4vq"]
+load_path = "res://.godot/imported/cp437.png-97ad3a0373098325e46ee456cc2b7b5d.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_merdl"]
+atlas = SubResource("CompressedTexture2D_jm4vq")
+region = Rect2(0, 64, 16, 16)
+
+[node name="Player" unique_id=108961046 instance=ExtResource("1_merdl")]
+script = null
+
+[node name="Sprite2D" parent="." index="0" unique_id=242988579]
+z_index = 1
+texture = SubResource("AtlasTexture_merdl")
+
+[node name="GridMovementComponent" type="Node" parent="." index="1" unique_id=312847651]
+script = ExtResource("2_gmc01")
+
+[node name="WaypointInputComponent" type="Node" parent="." index="2" unique_id=700000001]
+script = ExtResource("3_wpinput")
+
+[node name="PathFollowComponent" type="Node" parent="." index="3" unique_id=700000002]
+script = ExtResource("4_pfollow")
+
+[node name="Camera2D" type="Camera2D" parent="." index="4" unique_id=652101444]

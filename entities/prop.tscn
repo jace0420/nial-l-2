@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://jbi7i18p1frl"]
+
+[ext_resource type="PackedScene" uid="uid://dhw7ch1ko7wgd" path="res://entities/entity.tscn" id="1_40knq"]
+[ext_resource type="Script" path="res://entities/prop.gd" id="2_prop"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jm4vq"]
+load_path = "res://.godot/imported/cp437.png-97ad3a0373098325e46ee456cc2b7b5d.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5biau"]
+atlas = SubResource("CompressedTexture2D_jm4vq")
+region = Rect2(0, 80, 16, 16)
+
+[node name="Prop" unique_id=108961046 instance=ExtResource("1_40knq")]
+script = ExtResource("2_prop")
+blocksMovement = true
+interactionOffsets = Array[Vector2i]([Vector2i(0, -1), Vector2i(1, 0), Vector2i(0, 1), Vector2i(-1, 0)])
+
+[node name="Sprite2D" parent="." index="0" unique_id=242988579]
+texture = SubResource("AtlasTexture_5biau")

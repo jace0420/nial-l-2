@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dhw7ch1ko7wgd"]
+
+[ext_resource type="Script" uid="uid://blwfa1nvyckbg" path="res://entities/entity.gd" id="1_ep4xq"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jm4vq"]
+load_path = "res://.godot/imported/cp437.png-97ad3a0373098325e46ee456cc2b7b5d.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ep4xq"]
+atlas = SubResource("CompressedTexture2D_jm4vq")
+region = Rect2(80, 96, 16, 16)
+
+[node name="Entity" type="Node2D" unique_id=108961046]
+script = ExtResource("1_ep4xq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=242988579]
+texture = SubResource("AtlasTexture_ep4xq")

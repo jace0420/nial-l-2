@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://b6g7tlncgmmnn"]
+
+[ext_resource type="TileSet" uid="uid://bfykomiaxe4np" path="res://assets/tilesets/world_tile_set.tres" id="1_vgetg"]
+[ext_resource type="Script" path="res://maps/world/world_map.gd" id="2_wmscr"]
+
+[node name="WorldMap" type="Node2D" unique_id=823906523]
+script = ExtResource("2_wmscr")
+
+[node name="WorldTileMapLayer" type="TileMapLayer" parent="." unique_id=634062047]
+tile_set = ExtResource("1_vgetg")

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://0xko0h0dl5gy"]
+
+[ext_resource type="PackedScene" uid="uid://dd0m10bsdhoav" path="res://ui/ui_box.tscn" id="1_hl5xh"]
+[ext_resource type="Script" path="res://ui/confirmation_ui_box.gd" id="2_cbscr"]
+
+[node name="ConfirmationUIBox" unique_id=2042088280 instance=ExtResource("1_hl5xh")]
+script = ExtResource("2_cbscr")
+
+[node name="TitleLabel" parent="VBoxContainer" parent_id_path=PackedInt32Array(1534513246) index="1" unique_id=1366673540]
+text = "OK to do this action?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" parent_id_path=PackedInt32Array(1534513246) index="3" unique_id=801111346]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="YesButton" type="Button" parent="VBoxContainer/HBoxContainer" index="0" unique_id=1490413521]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+text = "Yes"
+
+[node name="NoButton" type="Button" parent="VBoxContainer/HBoxContainer" index="1" unique_id=1964809485]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+text = "No"

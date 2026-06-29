@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dpt5vw5eowure"]
+
+[ext_resource type="TileSet" uid="uid://6e1omqmtxayh" path="res://assets/tilesets/ground_tile_set.tres" id="1_gj7w6"]
+[ext_resource type="TileSet" uid="uid://pggetwslw6qw" path="res://assets/tilesets/obstacles_tile_set.tres" id="2_obstc"]
+[ext_resource type="Script" path="res://maps/local/local_map.gd" id="2_lmscr"]
+
+[node name="LocalMap" type="Node2D" unique_id=1653156577]
+script = ExtResource("2_lmscr")
+
+[node name="GroundTileMapLayer" type="TileMapLayer" parent="." unique_id=356016343]
+tile_set = ExtResource("1_gj7w6")
+
+[node name="ObstaclesTileMapLayer" type="TileMapLayer" parent="." unique_id=356016344]
+tile_set = ExtResource("2_obstc")

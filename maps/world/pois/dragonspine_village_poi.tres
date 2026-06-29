@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="WorldMapPoi" format=3 uid="uid://bultr8j82jk3o"]
+
+[ext_resource type="Script" uid="uid://fd7to018udl3" path="res://core/world_map_poi.gd" id="1_axog5"]
+[ext_resource type="PackedScene" uid="uid://iqlfsejiw4j5" path="res://maps/local/dragonspine_village.tscn" id="1_slakv"]
+[ext_resource type="Texture2D" uid="uid://blcx8fnxk7y42" path="res://assets/sprites/cp437.png" id="2_qgayp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8jsc"]
+atlas = ExtResource("2_qgayp")
+region = Rect2(96, 32, 16, 16)
+
+[resource]
+script = ExtResource("1_axog5")
+coordinates = Vector2i(23, 14)
+localMapScene = ExtResource("1_slakv")
+displayName = "Dragonspine Village"
+markerTexture = SubResource("AtlasTexture_p8jsc")
+markerModulate = Color(0.6862745, 0.5294118, 0, 1)
+metadata/_custom_type_script = "uid://fd7to018udl3"

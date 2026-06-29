@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://dd0m10bsdhoav"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x8gp3"]
+
+[node name="UIBox" type="Control" unique_id=2042088280]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1534513246]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.0
+offset_top = -180.0
+offset_right = 256.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer" unique_id=264779816]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_x8gp3")
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer" unique_id=1366673540]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "UI Box sample title 
+text"
+horizontal_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer" unique_id=1103174686]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_x8gp3")

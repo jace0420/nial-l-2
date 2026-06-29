@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bs1lxmmjv63gy"]
+
+[ext_resource type="PackedScene" uid="uid://dhw7ch1ko7wgd" path="res://entities/entity.tscn" id="1_hla71"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jm4vq"]
+load_path = "res://.godot/imported/cp437.png-97ad3a0373098325e46ee456cc2b7b5d.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hla71"]
+atlas = SubResource("CompressedTexture2D_jm4vq")
+region = Rect2(16, 96, 16, 16)
+
+[node name="Actor" unique_id=108961046 instance=ExtResource("1_hla71")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=242988579]
+texture = SubResource("AtlasTexture_hla71")
