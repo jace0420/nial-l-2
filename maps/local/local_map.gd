@@ -59,4 +59,5 @@ func getInteractablePropsNear(tile: Vector2i) -> Array[Prop]:
 		var propTile: Vector2i = layer.local_to_map(layer.to_local(prop.global_position))
 		if prop.canInteractFrom(tile, propTile):
 			result.append(prop)
+	result.sort_custom(func(a: Prop, b: Prop) -> bool: return a.interactionPriority > b.interactionPriority)
 	return result

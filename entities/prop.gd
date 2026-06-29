@@ -1,6 +1,7 @@
 class_name Prop extends Entity
 
 @export var blocksMovement: bool = true
+@export var interactionPriority: int = 0
 
 @export var interactionOffsets: Array[Vector2i] = [
 	Vector2i.UP,

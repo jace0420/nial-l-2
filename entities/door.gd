@@ -14,6 +14,7 @@ var isOpen: bool = false
 var _atlasTexture: AtlasTexture = null
 
 func _ready() -> void:
+	interactionPriority = 10
 	isOpen = startsOpen
 	blocksMovement = not isOpen
 	var base: AtlasTexture = _sprite.texture as AtlasTexture
