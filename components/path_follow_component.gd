@@ -1,8 +1,7 @@
 ## walks the player along a pre-resolved tile path; `stepped` is the world-travel tick all overworld systems hook onto.
 class_name PathFollowComponent extends Node
 
-## kept slow to give the player time to cancel mid-journey.
-const STEP_SECONDS: float = 2.5
+const STEP_SECONDS_DEFAULT: float = 2.5
 
 ## emitted once per tile, before the icon commits to it.
 signal stepped(tile: Vector2i)
@@ -18,7 +17,7 @@ func _ready() -> void:
 	EventBus.mapChanged.connect(_onMapChanged)
 	_timer = Timer.new()
 	_timer.one_shot = false
-	_timer.wait_time = STEP_SECONDS
+	_timer.wait_time = STEP_SECONDS_DEFAULT
 	_timer.timeout.connect(_onStep)
 	add_child(_timer)
 
@@ -51,6 +50,10 @@ func pause() -> void:
 func resume() -> void:
 	if _timer != null:
 		_timer.paused = false
+
+func setNextStepDuration(seconds: float) -> void:
+	if _timer != null:
+		_timer.wait_time = seconds
 
 func _onStep() -> void:
 	if _index >= _path.size():

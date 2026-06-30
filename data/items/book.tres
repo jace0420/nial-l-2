@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cal6yf7tw3y2u"]
+
+[ext_resource type="Script" uid="uid://b1uu1m3ar5n4q" path="res://data/items/item.gd" id="1_467ed"]
+[ext_resource type="Texture2D" uid="uid://blcx8fnxk7y42" path="res://assets/sprites/cp437.png" id="1_xboes"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rctup"]
+atlas = ExtResource("1_xboes")
+region = Rect2(128, 112, 16, 16)
+
+[resource]
+script = ExtResource("1_467ed")
+name = "Book"
+description = "A book thick with many thin pages. It could be about something fictitious, something not, or maybe the author's personal ramblings."
+shortDescription = "A book thick with many thin pages."
+color = Color(0.6862745, 0.5294118, 0, 1)
+properties = null
+baseCost = 25
+baseWeight = 5
+atlasTexture = SubResource("AtlasTexture_rctup")
+metadata/_custom_type_script = "uid://b1uu1m3ar5n4q"

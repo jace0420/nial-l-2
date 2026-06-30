@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cdy80ptqyg140"]
+
+[ext_resource type="PackedScene" uid="uid://jbi7i18p1frl" path="res://entities/prop.tscn" id="1_itrh2"]
+[ext_resource type="Script" path="res://entities/item_pickup.gd" id="2_itempickup"]
+
+[node name="Item" unique_id=108961046 instance=ExtResource("1_itrh2")]
+script = ExtResource("2_itempickup")
+blocksMovement = false
+interactionPriority = 0

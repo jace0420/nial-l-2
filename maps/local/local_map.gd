@@ -32,9 +32,8 @@ func getBlockingPropAt(tile: Vector2i) -> Prop:
 	var layer: TileMapLayer = getGroundLayer()
 	if layer == null:
 		return null
-	for child: Node in get_children():
-		var prop: Prop = child as Prop
-		if prop == null or not prop.isMovementBlocked():
+	for prop: Prop in _get_all_props():
+		if not prop.isMovementBlocked():
 			continue
 		var propTile: Vector2i = layer.local_to_map(layer.to_local(prop.global_position))
 		if propTile == tile:
@@ -52,12 +51,20 @@ func getInteractablePropsNear(tile: Vector2i) -> Array[Prop]:
 	var result: Array[Prop] = []
 	if layer == null:
 		return result
-	for child: Node in get_children():
-		var prop: Prop = child as Prop
-		if prop == null:
-			continue
+	for prop: Prop in _get_all_props():
 		var propTile: Vector2i = layer.local_to_map(layer.to_local(prop.global_position))
 		if prop.canInteractFrom(tile, propTile):
 			result.append(prop)
 	result.sort_custom(func(a: Prop, b: Prop) -> bool: return a.interactionPriority > b.interactionPriority)
 	return result
+
+func _get_all_props() -> Array[Prop]:
+	var result: Array[Prop] = []
+	_collect_props(self, result)
+	return result
+
+func _collect_props(node: Node, result: Array[Prop]) -> void:
+	for child in node.get_children():
+		if child is Prop:
+			result.append(child)
+		_collect_props(child, result)

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d2y8nyb733osm"]
+
+[ext_resource type="PackedScene" uid="uid://c8svtyssm7poj" path="res://entities/creature.tscn" id="1_2muf5"]
+
+[node name="Commoner" unique_id=108961046 instance=ExtResource("1_2muf5")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=242988579]
+modulate = Color(0.84313726, 0.5294118, 0.37254903, 1)

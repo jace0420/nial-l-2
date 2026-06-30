@@ -3,6 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://dpt5vw5eowure" path="res://maps/local/local_map.tscn" id="1_1d42n"]
 [ext_resource type="PackedScene" uid="uid://dyfhyb07sbpee" path="res://entities/door.tscn" id="2_1gkn1"]
 [ext_resource type="PackedScene" uid="uid://cjtetca7c1hbr" path="res://entities/decoration.tscn" id="2_fyci3"]
+[ext_resource type="PackedScene" uid="uid://d2y8nyb733osm" path="res://entities/commoner.tscn" id="2_wudsn"]
+[ext_resource type="Texture2D" uid="uid://blcx8fnxk7y42" path="res://assets/sprites/cp437.png" id="4_bfe1p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11c4k"]
+atlas = ExtResource("4_bfe1p")
+region = Rect2(64, 32, 16, 16)
 
 [node name="DragonspineVillage" unique_id=1653156577 instance=ExtResource("1_1d42n")]
 defaultSpawn = Vector2i(1, 21)
@@ -13,12 +19,19 @@ tile_map_data = PackedByteArray("AAAAAAQAAAAHAAIAAAACAAAAAAACAAIAAAAHAAAAAAAHAAI
 [node name="ObstaclesTileMapLayer" parent="." index="1" unique_id=356016344]
 tile_map_data = PackedByteArray("AAAGABIAAAADAAIAAgAGABEAAAADAAIAAgAGABAAAAADAAIAAgAGAA8AAAADAAIAAgAGAA4AAAADAAIAAgAGAA0AAAADAAIAAgAGAAwAAAADAAIAAgAGAAsAAAADAAIAAgAHAAsAAAADAAIAAgAIAAsAAAADAAIAAgAJAAsAAAADAAIAAgAKAAsAAAADAAIAAgALAAsAAAADAAIAAgAMAAsAAAADAAIAAgANAAsAAAADAAIAAgAOAAsAAAADAAIAAgAPAAsAAAADAAIAAgAQAAsAAAADAAIAAgAQAAwAAAADAAIAAgAQAA0AAAADAAIAAgAQAA4AAAADAAIAAgAQAA8AAAADAAIAAgAPAA8AAAADAAIAAgAOAA8AAAADAAIAAgAOABAAAAADAAIAAgAOABEAAAADAAIAAgAOABIAAAADAAIAAgAOABMAAAADAAIAAgANABMAAAADAAIAAgAMABMAAAADAAIAAgALABMAAAADAAIAAgAKABMAAAADAAIAAgAJABMAAAADAAIAAgAHABMAAAADAAIAAgAGABMAAAADAAIAAgA=")
 
-[node name="GeneralStoreSign" parent="." index="2" unique_id=108961046 instance=ExtResource("2_fyci3")]
+[node name="GeneralStore" type="Node" parent="." index="2" unique_id=802612877]
+
+[node name="Commoner" parent="GeneralStore" index="0" unique_id=108961046 instance=ExtResource("2_wudsn")]
+position = Vector2(200, 218)
+
+[node name="GeneralStoreSign" parent="GeneralStore" index="1" unique_id=1281178957 instance=ExtResource("2_fyci3")]
 modulate = Color(1, 1, 0, 1)
 position = Vector2(168, 328)
-atlasRegion = Rect2(64, 32, 16, 16)
+atlasTexture = SubResource("AtlasTexture_11c4k")
 description = "The sign reads: \"General Store\"."
 
-[node name="Door" parent="." index="3" unique_id=1838173630 instance=ExtResource("2_1gkn1")]
+[node name="Door" parent="GeneralStore" index="2" unique_id=1838173630 instance=ExtResource("2_1gkn1")]
 position = Vector2(136, 312)
+closedAtlasTexture = null
+openAtlasTexture = null
 interactionPriority = 0

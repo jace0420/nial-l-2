@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://dsw0rd00test"]
+
+[ext_resource type="Script" uid="uid://bhh3f62px4ufe" path="res://data/weapons/weapon.gd" id="1_weap"]
+[ext_resource type="Texture2D" uid="uid://blcx8fnxk7y42" path="res://assets/sprites/cp437.png" id="2_xboes"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sword"]
+atlas = ExtResource("2_xboes")
+region = Rect2(192, 96, 16, 16)
+
+[resource]
+script = ExtResource("1_weap")
+canEquip = true
+name = "Longsword"
+description = "A plain, well-balance iron longsword; favorited among many fighters."
+shortDescription = "A plain iron longsword."
+color = Color(0.8, 0.8, 0.85, 1)
+properties = null
+baseCost = 150
+baseWeight = 3
+atlasTexture = SubResource("AtlasTexture_sword")

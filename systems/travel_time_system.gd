@@ -8,6 +8,12 @@ class_name TravelTimeSystem extends Node
 ## diagonal steps cover ~2.83 miles instead of 2; set to 1.0 to make every tile cost the same.
 @export var diagonalFactor: float = 1.4142
 @export var pathFollowPath: NodePath
+## visual step animation range in real seconds; clamped so the player can always read and react.
+@export var stepSecondsMin: float = 1.2
+@export var stepSecondsMax: float = 3.5
+
+## terrain cost tier at which the step animation reaches stepSecondsMax.
+const STEP_EFFORT_CEILING_COST: int = 3
 
 const MILES_PER_TILE: float = 2.0
 
@@ -70,6 +76,12 @@ func _onStepped(tile: Vector2i) -> void:
 	var base: float = float(slowMinutes) - float(roll - 1) * float(slowMinutes - fastMinutes) / 19.0
 	var factor: float = diagonalFactor if diagonal else 1.0
 	var minutes: int = int(round(base * float(cost) * factor))
+
+	var raw_effort: float = base * float(cost)
+	var effort_min: float = float(fastMinutes)
+	var effort_max: float = float(slowMinutes) * float(STEP_EFFORT_CEILING_COST)
+	var t: float = clamp((raw_effort - effort_min) / (effort_max - effort_min), 0.0, 1.0)
+	_pathFollow.setNextStepDuration(lerp(stepSecondsMin, stepSecondsMax, t))
 
 	WorldTime.advanceMinutes(minutes)
 

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://dqp0t1on0test"]
+
+[ext_resource type="Script" uid="uid://b1uu1m3ar5n4q" path="res://data/items/item.gd" id="1_467ed"]
+[ext_resource type="Texture2D" uid="uid://blcx8fnxk7y42" path="res://assets/sprites/cp437.png" id="1_xboes"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wdku8"]
+atlas = ExtResource("1_xboes")
+region = Rect2(144, 96, 16, 16)
+
+[resource]
+script = ExtResource("1_467ed")
+canUse = true
+name = "Healing Potion"
+description = "A small vial of red liquid. Drinking it knits minor wounds closed."
+shortDescription = "A small vial of red liquid."
+color = Color(0.85, 0.1, 0.1, 1)
+properties = null
+baseCost = 50
+baseWeight = 1
+atlasTexture = SubResource("AtlasTexture_wdku8")

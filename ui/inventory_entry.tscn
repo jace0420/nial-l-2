@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://c2pogtujjcwc8"]
+
+[ext_resource type="FontFile" uid="uid://c0kwoab7v4qgk" path="res://assets/fonts/unscii-16-full.ttf" id="1_w8t27"]
+[ext_resource type="FontFile" uid="uid://b5fli6eno2u83" path="res://assets/fonts/unscii-8-fantasy.ttf" id="2_i8v30"]
+[ext_resource type="Script" uid="uid://cd6i26vo4gs43" path="res://ui/inventory_entry.gd" id="3_entry"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5mqxo"]
+bg_color = Color(1, 1, 1, 1)
+
+[node name="InventoryEntry" type="VBoxContainer" unique_id=1125404489]
+offset_right = 440.0
+offset_bottom = 56.0
+size_flags_horizontal = 0
+script = ExtResource("3_entry")
+
+[node name="TitleGridContainer" type="GridContainer" parent="." unique_id=739932995]
+layout_mode = 2
+theme_override_constants/h_separation = 32
+columns = 5
+
+[node name="ItemName" type="Label" parent="TitleGridContainer" unique_id=1394685389]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_w8t27")
+text = "Item Name"
+
+[node name="ItemAmount" type="Label" parent="TitleGridContainer" unique_id=516132930]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_w8t27")
+text = "(AMT)"
+
+[node name="ItemWeight" type="Label" parent="TitleGridContainer" unique_id=781639701]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_w8t27")
+text = "LBS"
+
+[node name="ItemCost" type="Label" parent="TitleGridContainer" unique_id=170581383]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_w8t27")
+text = "VAL"
+
+[node name="ItemType" type="Label" parent="TitleGridContainer" unique_id=1882249299]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_w8t27")
+text = "TYP"
+
+[node name="ShortDescription" type="RichTextLabel" parent="." unique_id=1179479402]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("2_i8v30")
+theme_override_font_sizes/normal_font_size = 8
+text = "This item is an item with certain properties."
+fit_content = true
+scroll_active = false
+
+[node name="ButtonsGridContainer" type="GridContainer" parent="." unique_id=1029881469]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+columns = 4
+
+[node name="EquipButton" type="Button" parent="ButtonsGridContainer" unique_id=1458200883]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_w8t27")
+text = "EQUIP"
+
+[node name="UseButton" type="Button" parent="ButtonsGridContainer" unique_id=1588381013]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_w8t27")
+text = "USE"
+
+[node name="InspectButton" type="Button" parent="ButtonsGridContainer" unique_id=2023213735]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_w8t27")
+text = "INSPECT"
+
+[node name="DropButton" type="Button" parent="ButtonsGridContainer" unique_id=886685464]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_w8t27")
+text = "DROP"
+
+[node name="VSeparator" type="VSeparator" parent="." unique_id=1303555050]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxFlat_5mqxo")

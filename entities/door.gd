@@ -1,8 +1,8 @@
 class_name Door extends Prop
 
 @export var startsOpen: bool = false
-@export var closedAtlasRegion: Rect2 = Rect2(192, 80, 16, 16)
-@export var openAtlasRegion: Rect2 = Rect2(0, 0, 16, 16)
+@export var closedAtlasTexture: AtlasTexture
+@export var openAtlasTexture: AtlasTexture
 
 signal stateChanged(door: Door, isOpen: bool)
 
@@ -10,17 +10,10 @@ var isOpen: bool = false
 
 @onready var _sprite: Sprite2D = $Sprite2D
 
-# Duplicated atlas texture so each door instance has its own sub-resource.
-var _atlasTexture: AtlasTexture = null
-
 func _ready() -> void:
 	interactionPriority = 10
 	isOpen = startsOpen
 	blocksMovement = not isOpen
-	var base: AtlasTexture = _sprite.texture as AtlasTexture
-	if base != null:
-		_atlasTexture = base.duplicate() as AtlasTexture
-		_sprite.texture = _atlasTexture
 	super._ready()
 	_updateVisual()
 
@@ -41,6 +34,6 @@ func interact(actor: Node2D) -> bool:
 	return true
 
 func _updateVisual() -> void:
-	if _atlasTexture == null:
-		return
-	_atlasTexture.region = openAtlasRegion if isOpen else closedAtlasRegion
+	var tex: AtlasTexture = openAtlasTexture if isOpen else closedAtlasTexture
+	if tex != null:
+		_sprite.texture = tex

@@ -2,6 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://dpt5vw5eowure" path="res://maps/local/local_map.tscn" id="1_uloyk"]
 [ext_resource type="PackedScene" uid="uid://dyfhyb07sbpee" path="res://entities/door.tscn" id="2_jkb55"]
+[ext_resource type="PackedScene" uid="uid://cdy80ptqyg140" path="res://entities/item.tscn" id="3_itempickup"]
+[ext_resource type="Resource" uid="uid://cal6yf7tw3y2u" path="res://data/items/book.tres" id="4_book"]
+[ext_resource type="Resource" uid="uid://dqp0t1on0test" path="res://data/items/potion.tres" id="5_potion"]
+[ext_resource type="Resource" uid="uid://dsw0rd00test" path="res://data/weapons/sword.tres" id="6_sword"]
 
 [node name="PlayerHome" unique_id=1653156577 instance=ExtResource("1_uloyk")]
 defaultSpawn = Vector2i(5, 8)
@@ -14,3 +18,16 @@ tile_map_data = PackedByteArray("AAARAAcAAAADAAIAAQASAAcAAAADAAIAAQASAAYAAAADAAI
 
 [node name="Door" parent="." index="2" unique_id=108961046 instance=ExtResource("2_jkb55")]
 position = Vector2(248, 199)
+interactionPriority = 0
+
+[node name="BookPickup" parent="." instance=ExtResource("3_itempickup")]
+position = Vector2(88, 120)
+item = ExtResource("4_book")
+
+[node name="PotionPickup" parent="." instance=ExtResource("3_itempickup")]
+position = Vector2(104, 136)
+item = ExtResource("5_potion")
+
+[node name="SwordPickup" parent="." instance=ExtResource("3_itempickup")]
+position = Vector2(72, 136)
+item = ExtResource("6_sword")

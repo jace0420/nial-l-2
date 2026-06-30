@@ -15,3 +15,11 @@ signal travelEnded(reason: StringName)
 ## a line to append to the game log. LogManager renders it; anyone may emit it.
 signal logMessagePosted(text: String, color: Color)
 
+## fires after the player's inventory changes (add/remove). InventoryUI rebuilds on this.
+signal inventoryChanged
+
+## fired when the player presses EQUIP/USE on an inventory entry. no effect yet —
+## hooks for future equipment/consumable systems.
+signal itemEquipped(item: Item)
+signal itemUsed(item: Item)
+
